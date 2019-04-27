@@ -7,10 +7,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to post_path(@post)
+      redirect_to comment_path(@comment)
     else
       render :new
     end
+  end
+
+  def show
   end
 
   private
