@@ -5,12 +5,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to comment_path(@comment)
-    else
-      render :new
-    end
+    @comment = Comment.create(comment_params)
+    @comment.user = User.find_by_id(comment_params[:user_id])
+    @comment.user
+        #byebug
+    redirect_to @comment.post
   end
 
   def show
