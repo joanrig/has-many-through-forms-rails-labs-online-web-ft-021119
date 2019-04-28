@@ -15,15 +15,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    #byebug
+    #binding.pry
     @post = Post.new(post_params)
     if @post.save
       redirect_to post_path(@post)
     else
       render :new
     end
-
-
   end
 
   private

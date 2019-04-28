@@ -5,9 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
+    binding.pry
     @user = User.new(user_params)
-
   end
 
   private
