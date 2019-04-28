@@ -6,7 +6,12 @@
   <%= f.text_area :content %>
 
   <h3><%= f.label "Pick a Category" %></h3>
-  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %><br>
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b|%>
+  <p>
+    <%= b.check_box %>
+    <%= b.label %>
+  </p>
+  <% end %>
 
   <h3><%= f.label "Or, create a new category" %></h3>
   <%= f.fields_for :categories, Category.new do |categories_fields| %><br>
